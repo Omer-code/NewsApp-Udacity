@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="title">place_holder_for_title_about_three_lines_...............................................................................</string>
+    <string name="section">news_section_plce_holde</string>
+    <string name="date">yyyy/mm/dd</string>
+    <string name="website">click to go to website</string>
 </resources>
