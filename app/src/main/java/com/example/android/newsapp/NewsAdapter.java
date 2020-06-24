@@ -30,6 +30,12 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
         TextView sectionTextView = listItemView.findViewById(R.id.section);
         sectionTextView.setText(currentNewsItem.getSection());
 
+        TextView authorTextView = listItemView.findViewById(R.id.author);
+        if(currentNewsItem.getAuthorsCount()>1)
+            authorTextView.setText("by "+currentNewsItem.getAuthor()+", and others");
+        else
+            authorTextView.setText("by "+currentNewsItem.getAuthor());
+
         TextView dateTextView = listItemView.findViewById(R.id.date);
         String str = currentNewsItem.getDate();
         String str2 = str.substring(0, str.indexOf("T"));

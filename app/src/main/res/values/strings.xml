@@ -4,4 +4,5 @@
     <string name="section">news_section_plce_holde</string>
     <string name="date">yyyy/mm/dd</string>
     <string name="website">click to go to website</string>
+    <string name="author_name">by_aaaaaaaaa_aaaaaaaa_bbbb</string>
 </resources>

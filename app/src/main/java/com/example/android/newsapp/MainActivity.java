@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<NewsItem>> {
-    final private String newsURL = "https://content.guardianapis.com/search?api-key=test";
+    final private String baseNewsURL = "https://content.guardianapis.com/search";
     private NewsAdapter adapter;
     private TextView emptyTextView;
 
@@ -64,11 +64,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int id, Bundle args) {
-        Uri baseUri = Uri.parse(newsURL);
-        Uri.Builder uriBuilder = baseUri.buildUpon();
-        String url = uriBuilder.toString();
-
-        Log.e("error", "Failed!");
+        String url= buildUri();
         return new NewsLoader(this, url);
     }
 
@@ -89,4 +85,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         adapter.clear();
     }
 
+    public String buildUri(){
+        Uri baseUri = Uri.parse(baseNewsURL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("api-key","test");
+        uriBuilder.appendQueryParameter("show-tags","contributor");
+        String url = uriBuilder.toString();
+        Log.e("URL TEST",url);
+        return url;
+    }
 }

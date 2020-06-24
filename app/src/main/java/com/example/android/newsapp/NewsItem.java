@@ -5,12 +5,16 @@ public class NewsItem {
     String section;
     String date;
     String url;
+    String author;
+    int authorsCount;
 
-    public NewsItem(String title, String section, String date, String url) {
+    public NewsItem(String title, String section, String date, String url, String author,int authorsCount) {
         this.title = title;
         this.section = section;
         this.date = date;
         this.url = url;
+        this.author=author;
+        this.authorsCount=authorsCount;
     }
 
     public String getTitle() {
@@ -25,7 +29,9 @@ public class NewsItem {
         return date;
     }
 
-    public String getUrl() {
-        return url;
-    }
+    public String getUrl() { return url; }
+
+    public String getAuthor() { return author; }
+
+    public int getAuthorsCount() { return authorsCount; }
 }

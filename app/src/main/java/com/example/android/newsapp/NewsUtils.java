@@ -47,8 +47,9 @@ public class NewsUtils {
             JSONArray jsonArrayResults = jsonObjectResponse.getJSONArray("results");
             for (int i = 0; i < jsonArrayResults.length(); i++) {
                 JSONObject currentNewsItem = jsonArrayResults.getJSONObject(i);
-
-                news.add(new NewsItem(currentNewsItem.getString("webTitle"), currentNewsItem.getString("sectionName"), currentNewsItem.getString("webPublicationDate"), currentNewsItem.getString("webUrl")));
+                JSONArray tags =currentNewsItem.getJSONArray("tags");
+                JSONObject firstAuthor =tags.getJSONObject(0);
+                news.add(new NewsItem(currentNewsItem.getString("webTitle"), currentNewsItem.getString("sectionName"), currentNewsItem.getString("webPublicationDate"), currentNewsItem.getString("webUrl"),firstAuthor.getString("webTitle"),tags.length()));
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
